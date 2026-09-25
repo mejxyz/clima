@@ -11,6 +11,9 @@
 
 2. Keep a journal file containing the user's instructions to the AI assistant.
 
+3. Prepare one shared folder of reusable procedure files for machine learning,
+   hypothesis testing, graphical construction, and related data work.
+
 ## Project Decisions
 
 - Project name: `clima`
