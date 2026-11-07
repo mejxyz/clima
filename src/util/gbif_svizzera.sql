@@ -1,0 +1,439 @@
+-- Template GBIF: 432 campi disponibili, con brevi definizioni per campo.
+-- Rimuovi il prefisso -- per selezionare un attributo; aggiungilo per escluderlo.
+-- Le descrizioni sono commenti SQL; il modulo Python ricompone la SELECT.
+SELECT
+--    "gbifid" -- Unique GBIF key for the occurrence.
+--    "accessrights" -- Information about who can access the resource or an indication of its security status.
+--    "bibliographiccitation" -- A bibliographic reference for the resource.
+--    "language" -- A language of the resource.
+    "license" -- A legal document giving official permission to do something with the occurrence.
+--    "modified" -- The most recent date-time on which the occurrence was changed, according to the publisher.
+--    "publisher" -- The name of the organization publishing this record
+--    "references" -- A related resource that is referenced, cited, or otherwise pointed to by the described resource.
+--    "rightsholder" -- A person or organization owning or managing rights over the resource.
+--    "type" -- The nature or genre of the resource.
+--    "institutionid" -- An identifier for the institution having custody of the object(s) or information referred to in the record.
+--    "collectionid" -- An identifier for the collection or dataset from which the record was derived.
+--    "datasetid" -- An identifier for the set of data.
+--    "institutioncode" -- The name (or acronym) in use by the institution having custody of the object(s) or information referred to in the record.
+--    "collectioncode" -- The name, acronym, coden, or initialism identifying the collection or data set from which the record was derived.
+--    "datasetname" -- The name identifying the data set from which the record was derived.
+--    "ownerinstitutioncode" -- The name (or acronym) in use by the institution having ownership of the object(s) or information referred to in the record.
+    "basisofrecord" -- The values of the Darwin Core term Basis of Record which can apply to occurrences.
+--    "informationwithheld" -- Additional information that exists, but that has not been shared in the given record.
+--    "datageneralizations" -- Actions taken to make the shared data less specific or complete than in its original form.
+--    "dynamicproperties" -- A list of additional measurements, facts, characteristics, or assertions about the record.
+--    "occurrenceid" -- An identifier for the dwc:Occurrence (as opposed to a particular digital record of the dwc:Occurrence).
+--    "catalognumber" -- An identifier (preferably unique) for the record within the data set or collection.
+--    "recordnumber" -- An identifier given to the dwc:Occurrence at the time it was recorded.
+--    "recordedby" -- A person, group, or organization responsible for recording the original occurrence.
+--    "recordedbyid" -- A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for recording the original...
+--    "individualcount" -- The number of individuals present at the time of the Occurrence.
+--    "organismquantity" -- A number or enumeration value for the quantity of organisms.
+--    "organismquantitytype" -- The type of quantification system used for the quantity of organisms.
+--    "sex" -- The sex of the biological individual(s) represented in the dwc:Occurrence.
+--    "lifestage" -- The age class or life stage of the Organism(s) at the time the Occurrence was recorded.
+--    "reproductivecondition" -- The reproductive condition of the biological individual(s) represented in the dwc:Occurrence.
+--    "caste" -- Categorisation of individuals for eusocial species (including some mammals and arthropods).
+--    "behavior" -- The behavior shown by the subject at the time the dwc:Occurrence was recorded.
+--    "vitality" -- An indication of whether a dwc:Organism was alive or dead at the time of collection or observation.
+--    "establishmentmeans" -- Statement about whether an organism or organisms have been introduced to a given place and time through the direct or indirect activity of modern humans.
+--    "degreeofestablishment" -- The degree to which an Organism survives, reproduces, and expands its range at the given place and time.
+--    "pathway" -- The process by which an Organism came to be in a given place at a given time.
+--    "georeferenceverificationstatus" -- A categorical description of the extent to which the georeference has been verified to represent the best possible spatial description for the dcterms:Location of the...
+--    "occurrencestatus" -- A statement about the presence or absence of a Taxon at a Location.
+--    "preparations" -- A preparation or preservation method for a specimen.
+--    "disposition" -- The current state of a dwc:MaterialEntity with respect to a collection.
+--    "associatedoccurrences" -- A list (concatenated and separated) of identifiers of other dwc:Occurrence records and their associations to this dwc:Occurrence.
+--    "associatedreferences" -- A list (concatenated and separated) of identifiers (publication, bibliographic reference, global unique identifier, URI) of literature associated with the dwc:Occurrence.
+--    "associatedsequences" -- A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of genetic sequence information associated with the material entity.
+--    "associatedtaxa" -- A list (concatenated and separated) of identifiers or names of dwc:Taxon records and the associations of this dwc:Occurrence to each of them.
+--    "othercatalognumbers" -- A list (concatenated and separated) of previous or alternate fully qualified catalogue numbers or other human-used identifiers for the same occurrence, whether in the...
+--    "occurrenceremarks" -- Comments or notes about the dwc:Occurrence.
+--    "organismid" -- An identifier for the dwc:Organism instance (as opposed to a particular digital record of the dwc:Organism).
+--    "organismname" -- A textual name or label assigned to a dwc:Organism instance.
+--    "organismscope" -- A description of the kind of dwc:Organism instance.
+--    "associatedorganisms" -- A list (concatenated and separated) of identifiers of other dwc:Organisms and the associations of this dwc:Organism to each of them.
+--    "previousidentifications" -- A list (concatenated and separated) of previous assignments of names to the dwc:Organism.
+--    "organismremarks" -- Comments or notes about the dwc:Organism instance.
+--    "materialentityid" -- An identifier for a particular instance of a dwc:MaterialEntity.
+--    "materialentityremarks" -- Comments or notes about the dwc:MaterialEntity instance.
+--    "verbatimlabel" -- The content of this term should include no embellishments, prefixes, headers or other additions made to the text.
+--    "materialsampleid" -- An identifier for the dwc:MaterialSample (as opposed to a particular digital record of the dwc:MaterialSample).
+--    "eventid" -- An identifier for the set of information associated with a dwc:Event (something that occurs at a place and time).
+--    "parenteventid" -- An identifier for the broader dwc:Event that groups this and potentially other dwc:Events.
+--    "eventtype" -- The type for sampling event records.
+--    "fieldnumber" -- An identifier given to the dwc:Event in the field.
+    "eventdate" -- The date-time during which an Event occurred.
+--    "eventtime" -- The time or interval during which a dwc:Event occurred.
+--    "startdayofyear" -- The latest integer day of the year on which the Event occurred (1 for 1 January, 365 for 31 December, except in a leap year, in which case it is 366).
+--    "enddayofyear" -- The earliest integer day of the year on which the Event occurred (1 for 1 January, 365 for 31 December, except in a leap year, in which case it is 366).
+    "year" -- The four-digit year in which the event occurred, according to the Common Era calendar.
+--    "month" -- The integer month in which the Event occurred.
+--    "day" -- The integer day of the month on which the Event occurred.
+--    "verbatimeventdate" -- The verbatim original representation of the date and time information for a dwc:Event.
+--    "habitat" -- A category or description of the habitat in which the dwc:Event occurred.
+--    "samplingprotocol" -- The methods or protocols used during an Event, denoted by an IRI.
+--    "samplesizevalue" -- A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling event.
+--    "samplesizeunit" -- The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling event.
+--    "samplingeffort" -- The amount of effort expended during a dwc:Event.
+--    "fieldnotes" -- One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the dwc:Event.
+--    "eventremarks" -- Comments or notes about the dwc:Event.
+--    "locationid" -- An identifier for the set of dcterms:Location information.
+--    "highergeographyid" -- An identifier for the geographic region within which the dcterms:Location occurred.
+--    "highergeography" -- A list (concatenated and separated) of geographic names less specific than the information captured in the dwc:locality term.
+--    "continent" -- The continent, based on a 7 continent model described on Wikipedia and the World Geographical Scheme for Recording Plant Distributions (WGSRPD).
+--    "waterbody" -- The name of the water body in which the Location occurs.
+--    "islandgroup" -- The name of the island group in which the dcterms:Location occurs.
+--    "island" -- The name of the island on or near which the dcterms:Location occurs.
+    "countrycode" -- The 2-letter country code (as per ISO-3166-1) of the country, territory or area in which the occurrence was recorded.
+--    "stateprovince" -- The name of the next-smaller administrative region than country (state, province, canton, department, region, etc.) in which the occurrence occurs.
+--    "county" -- The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the dcterms:Location occurs.
+--    "municipality" -- The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the dcterms:Location occurs.
+--    "locality" -- The specific description of the place.
+--    "verbatimlocality" -- The original textual description of the place.
+--    "verbatimelevation" -- The original description of the elevation (altitude, usually above sea level) of the Location.
+--    "verticaldatum" -- The vertical datum used as the reference upon which the values in the elevation terms are based.
+--    "verbatimdepth" -- The original description of the depth below the local surface.
+--    "minimumdistanceabovesurfaceinmeters" -- The lesser distance in a range of distance from a reference surface in the vertical direction, in meters.
+--    "maximumdistanceabovesurfaceinmeters" -- The greater distance in a range of distance from a reference surface in the vertical direction, in meters.
+--    "locationaccordingto" -- Information about the source of this dcterms:Location information.
+--    "locationremarks" -- Comments or notes about the dcterms:Location.
+    "decimallatitude" -- The geographic latitude (in decimal degrees, using the WGS84 datum) of the geographic centre of the location of the occurrence.
+    "decimallongitude" -- The geographic longitude (in decimal degrees, using the WGS84 datum) of the geographic centre of the location of the occurrence.
+    "coordinateuncertaintyinmeters" -- The horizontal distance (in metres) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location.
+--    "coordinateprecision" -- A decimal representation of the precision of the coordinates given in the decimalLatitude and decimalLongitude.
+--    "pointradiusspatialfit" -- The ratio of the area of the point-radius (dwc:decimalLatitude, dwc:decimalLongitude, dwc:coordinateUncertaintyInMeters) to the area of the true (original, or most...
+--    "verbatimcoordinatesystem" -- The coordinate format for the dwc:verbatimLatitude and dwc:verbatimLongitude or the dwc:verbatimCoordinates of the dcterms:Location.
+--    "verbatimsrs" -- The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which coordinates given in dwc:verbatimLatitude and dwc:verbatimLongitude, or...
+--    "footprintwkt" -- A Well-Known Text (WKT) representation of the shape (footprint, geometry) that defines the dcterms:Location.
+--    "footprintsrs" -- The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geometry given in dwc:footprintWKT is based.
+--    "footprintspatialfit" -- The ratio of the area of the dwc:footprintWKT to the area of the true (original, or most specific) spatial representation of the dcterms:Location.
+--    "georeferencedby" -- A list (concatenated and separated) of names of people, groups, or organizations who determined the georeference (spatial representation) for the dcterms:Location.
+--    "georeferenceddate" -- The date on which the dcterms:Location was georeferenced.
+--    "georeferenceprotocol" -- A description or reference to the methods used to determine the spatial footprint, coordinates, and uncertainties.
+--    "georeferencesources" -- A list (concatenated and separated) of maps, gazetteers, or other resources used to georeference the dcterms:Location, described specifically enough to allow anyone...
+--    "georeferenceremarks" -- Comments or notes about the spatial description determination, explaining assumptions made in addition or opposition to the those formalized in the method referred to...
+--    "geologicalcontextid" -- An identifier for the set of information associated with a dwc:GeologicalContext (the location within a geological context, such as stratigraphy).
+--    "earliesteonorlowesteonothem" -- The full name of the earliest possible geochronologic eon or lowest chrono-stratigraphic eonothem or the informal name ("Precambrian") attributable to the...
+--    "latesteonorhighesteonothem" -- The full name of the latest possible geochronologic eon or highest chrono-stratigraphic eonothem or the informal name ("Precambrian") attributable to the...
+--    "earliesteraorlowesterathem" -- The full name of the earliest possible geochronologic era or lowest chronostratigraphic erathem attributable to the stratigraphic horizon from which the...
+--    "latesteraorhighesterathem" -- The full name of the latest possible geochronologic era or highest chronostratigraphic erathem attributable to the stratigraphic horizon from which the...
+--    "earliestperiodorlowestsystem" -- The full name of the earliest possible geochronologic period or lowest chronostratigraphic system attributable to the stratigraphic horizon from which the...
+--    "latestperiodorhighestsystem" -- The full name of the latest possible geochronologic period or highest chronostratigraphic system attributable to the stratigraphic horizon from which the...
+--    "earliestepochorlowestseries" -- The full name of the earliest possible geochronologic epoch or lowest chronostratigraphic series attributable to the stratigraphic horizon from which the...
+--    "latestepochorhighestseries" -- The full name of the latest possible geochronologic epoch or highest chronostratigraphic series attributable to the stratigraphic horizon from which the...
+--    "earliestageorloweststage" -- The full name of the earliest possible geochronologic age or lowest chronostratigraphic stage attributable to the stratigraphic horizon from which the...
+--    "latestageorhigheststage" -- The full name of the latest possible geochronologic age or highest chronostratigraphic stage attributable to the stratigraphic horizon from which the...
+--    "lowestbiostratigraphiczone" -- The full name of the lowest possible geological biostratigraphic zone of the stratigraphic horizon from which the dwc:MaterialEntity was collected.
+--    "highestbiostratigraphiczone" -- The full name of the highest possible geological biostratigraphic zone of the stratigraphic horizon from which the dwc:MaterialEntity was collected.
+--    "lithostratigraphicterms" -- The combination of all lithostratigraphic names for the rock from which the dwc:MaterialEntity was collected.
+--    "group" -- The full name of the lithostratigraphic group from which the dwc:MaterialEntity was collected.
+--    "formation" -- The full name of the lithostratigraphic formation from which the dwc:MaterialEntity was collected.
+--    "member" -- The full name of the lithostratigraphic member from which the dwc:MaterialEntity was collected.
+--    "bed" -- The full name of the lithostratigraphic bed from which the dwc:MaterialEntity was collected.
+--    "identificationid" -- An identifier for the dwc:Identification (the body of information associated with the assignment of a scientific name).
+--    "verbatimidentification" -- A string representing the taxonomic identification as it appeared in the original record.
+--    "identificationqualifier" -- A brief phrase or a standard term ("cf.", "aff.") to express the determiner’s doubts about the dwc:Identification.
+--    "typestatus" -- A list (concatenated and separated) of nomenclatural types (type status, typified scientific name, publication) applied to the occurrence.
+--    "identifiedby" -- A list (concatenated and separated) of names of people, groups, or organizations who assigned the Taxon to the occurrence.
+--    "identifiedbyid" -- A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for assigning the dwc:Taxon to the...
+--    "dateidentified" -- The date on which the subject was determined as representing the Taxon.
+--    "identificationreferences" -- A list (concatenated and separated) of references (publication, global unique identifier, URI) used in the dwc:Identification.
+--    "identificationverificationstatus" -- A categorical indicator of the extent to which the taxonomic identification has been verified to be correct.
+--    "identificationremarks" -- Comments or notes about the dwc:Identification.
+--    "taxonid" -- An identifier for the set of dwc:Taxon information.
+--    "scientificnameid" -- An identifier for the nomenclatural (not taxonomic) details of a scientific name.
+--    "acceptednameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) of the currently valid (zoological) or accepted (botanical) taxon.
+--    "parentnameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) of the direct, most proximate higher-rank parent taxon (in a classification)...
+--    "originalnameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) in which the terminal element of the dwc:scientificName was originally...
+--    "nameaccordingtoid" -- An identifier for the source in which the specific taxon concept circumscription is defined or implied.
+--    "namepublishedinid" -- An identifier for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode.
+--    "taxonconceptid" -- An identifier for the taxonomic concept to which the record refers - not for the nomenclatural details of a dwc:Taxon.
+    "scientificname" -- The scientific name (including authorship) for the taxon from the GBIF backbone matched to this occurrence.
+--    "acceptednameusage" -- The full name, with authorship and date information if known, of the currently valid (zoological) or accepted (botanical) dwc:Taxon.
+--    "parentnameusage" -- The full name, with authorship and date information if known, of the direct, most proximate higher-rank parent dwc:Taxon (in a classification) of the most specific...
+--    "originalnameusage" -- The taxon name, with authorship and date information if known, as it originally appeared when first established under the rules of the associated dwc:nomenclaturalCode.
+--    "nameaccordingto" -- The reference to the source in which the specific taxon concept circumscription is defined or implied - traditionally signified by the Latin "sensu" or "sec." (from...
+--    "namepublishedin" -- A reference for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode.
+--    "namepublishedinyear" -- The four-digit year in which the dwc:scientificName was published.
+--    "higherclassification" -- A list (concatenated and separated) of taxa names terminating at the rank immediately superior to the referenced dwc:Taxon.
+--    "kingdom" -- The kingdom name (excluding authorship) for the kingdom from the GBIF backbone matched to this occurrence.
+--    "phylum" -- The phylum name (excluding authorship) for the phylum from the GBIF backbone matched to this occurrence.
+--    "class" -- The class name (excluding authorship) for the class from the GBIF backbone matched to this occurrence.
+--    "order" -- The order name (excluding authorship) for the order from the GBIF backbone matched to this occurrence.
+--    "superfamily" -- The full scientific name of the superfamily in which the dwc:Taxon is classified.
+--    "family" -- The family name (excluding authorship) for the family from the GBIF backbone matched to this occurrence.
+--    "subfamily" -- The full scientific name of the subfamily in which the dwc:Taxon is classified.
+--    "tribe" -- The full scientific name of the tribe in which the dwc:Taxon is classified.
+--    "subtribe" -- The full scientific name of the subtribe in which the dwc:Taxon is classified.
+--    "genus" -- The genus name (excluding authorship) for the genus from the GBIF backbone matched to this occurrence.
+--    "genericname" -- The genus name part of the species name from the GBIF backbone matched to this occurrence.
+--    "subgenus" -- The subgenus name (excluding authorship) for the subgenus from the GBIF backbone matched to this occurrence.
+--    "infragenericepithet" -- The infrageneric part of a binomial name at ranks above species but below genus.
+--    "specificepithet" -- The specific name part of the species name from the GBIF backbone matched to this occurrence.
+--    "infraspecificepithet" -- The infraspecific name part of the species name from the GBIF backbone matched to this occurrence.
+--    "cultivarepithet" -- Part of the name of a cultivar, cultivar group or grex that follows the dwc:scientificName.
+--    "taxonrank" -- The taxonomic rank of the most specific name in the scientificName.
+--    "verbatimtaxonrank" -- The taxonomic rank of the most specific name in the dwc:scientificName as it appears in the original record.
+--    "vernacularname" -- A common or vernacular name.
+--    "nomenclaturalcode" -- The nomenclatural code (or codes in the case of an ambiregnal name) under which the dwc:scientificName is constructed.
+--    "taxonomicstatus" -- The status of the use of the scientificName as a label for a taxon.
+--    "nomenclaturalstatus" -- The status related to the original publication of the name and its conformance to the relevant rules of nomenclature.
+--    "taxonremarks" -- Comments or notes about the taxon or name.
+--    "datasetkey" -- The UUID of the GBIF dataset containing this occurrence.
+--    "publishingcountry" -- The country, territory or island based on ISO-3166 of the organization publishing the dataset containing this occurrence.
+--    "lastinterpreted" -- The time this occurrence was last processed by GBIF’s interpretation system “Pipelines”.
+--    "elevation" -- Elevation (altitude) in metres above sea level.
+--    "elevationaccuracy" -- The value of the potential error associated with the elevation.
+--    "depth" -- Depth in metres below sea level.
+--    "depthaccuracy" -- The value of the potential error associated with the depth.
+--    "distancefromcentroidinmeters" -- The distance in metres of the occurrence from a centroid known to be applied to occurrences during georeferencing.
+--    "issue" -- A specific interpretation issue found during processing and interpretation of the record.
+--    "taxonomicissue" -- Taxonomic issues reported during occurrence interpretation.
+--    "nontaxonomicissue" -- Data-quality issues unrelated to taxonomy.
+--    "mediatype" -- The media type given as Dublin Core type values, in particular StillImage, MovingImage or Sound.
+--    "hascoordinate" -- Boolean indicating that a valid latitude and longitude exists.
+--    "hasgeospatialissues" -- Boolean indicating that some spatial validation rule has not passed.
+--    "taxonkey" -- A taxon key from the GBIF backbone for the most specific (lowest rank) taxon for this occurrence.
+--    "acceptedtaxonkey" -- A taxon key from the GBIF backbone for the accepted taxon of this occurrence.
+--    "kingdomkey" -- A taxon key from the GBIF backbone for the kingdom of thisoccurrence.
+--    "phylumkey" -- A taxon key from the GBIF backbone for the phylum of thisoccurrence.
+--    "classkey" -- A taxon key from the GBIF backbone for the class of thisoccurrence.
+--    "orderkey" -- A taxon key from the GBIF backbone for the order of thisoccurrence.
+--    "superfamilykey" -- Taxon key at the superfamily rank.
+--    "familykey" -- A taxon key from the GBIF backbone for the family of thisoccurrence.
+--    "subfamilykey" -- Taxon key at the subfamily rank.
+--    "tribekey" -- Taxon key at the tribe rank.
+--    "subtribekey" -- Taxon key at the subtribe rank.
+--    "genuskey" -- A taxon key from the GBIF backbone for the genus of thisoccurrence.
+--    "subgenuskey" -- A taxon key from the GBIF backbone for the subgenus of thisoccurrence.
+--    "specieskey" -- A taxon key from the GBIF backbone for the species of thisoccurrence.
+    "species" -- The species name (excluding authorship) for the species from the GBIF backbone matched to this occurrence.
+    "acceptedscientificname" -- The accepted scientific name (including authorship) for the taxon from the GBIF backbone matched to this occurrence.
+--    "typifiedname" -- The scientific name that is based on the type specimen.
+--    "protocol" -- The technical protocol by which this occurrence was retrieved from the publisher’s systems.
+--    "lastparsed" -- The time this occurrence was last processed by GBIF’s interpretation system “Pipelines”.
+--    "lastcrawled" -- The time this occurrence was last retrieved from the publisher’s systems.
+--    "isinvasive" -- Indicates whether the taxon is considered invasive.
+--    "repatriated" -- Boolean indicating if the publishing country is different to the location country.
+--    "relativeorganismquantity" -- The relative measurement of the quantity of the organism (i.e. without absolute units).
+--    "issequenced" -- Flag occurrence when associatedSequences/extension exists
+--    "gbifregion" -- An enumeration for all GBIF Regions.
+--    "publishedbygbifregion" -- An enumeration for all GBIF Regions.
+--    "projectid" -- Identifiers for projects related to this occurrence.
+--    "level0gid" -- The identifier for the top-level division from the GADM database.
+--    "level0name" -- The English name for the top-level division from the GADM database.
+--    "level1gid" -- The identifier for the first-level division from the GADM database.
+--    "level1name" -- The English name for the first-level division from the GADM database.
+--    "level2gid" -- The identifier for the second-level division from the GADM database.
+--    "level2name" -- The English name for the second-level division from the GADM database.
+--    "level3gid" -- The identifier for the third-level division from the GADM database.
+--    "level3name" -- The English name for the third-level division from the GADM database.
+--    "iucnredlistcategory" -- The IUCN Red List Category of the taxon of this occurrence.
+--    "eventdatelte" -- Experimental The upper bound for the eventDate term as a timestamp, 2000-12-31T23:59:59 for an event date of 2000.
+--    "isincluster" -- Experimental.
+--    "dwcaextension" -- The list of Darwin Core extensions present on the occurrence record.
+--    "hostingorganizationkey" -- The UUID of the publishing organization which operates the technical installation hosting the dataset containing this occurrence.
+--    "collectionkey" -- Experimental.
+--    "eventdategte" -- Experimental The lower bound for the eventDate term as a timestamp, 2000-01-01T00:00:00 for an event date of 2000.
+--    "installationkey" -- The UUID of the technical installation hosted the dataset containing this occurrence.
+--    "publishingorgkey" -- The UUID of the organization which publishes the dataset containing this occurrence.
+--    "institutionkey" -- Experimental.
+--    "programmeacronym" -- The identifier for a programme which funded the digitization of this occurrence.
+--    "v_accessrights" -- Information about who can access the resource or an indication of its security status.
+--    "v_bibliographiccitation" -- A bibliographic reference for the resource.
+--    "v_language" -- A language of the resource.
+--    "v_license" -- A legal document giving official permission to do something with the resource.
+--    "v_modified" -- Date on which the resource was changed.
+--    "v_publisher" -- An entity responsible for making the image available.
+--    "v_references" -- A related resource that is referenced, cited, or otherwise pointed to by the described resource.
+--    "v_rightsholder" -- A person or organization owning or managing rights over the resource.
+--    "v_type" -- The nature or genre of the resource.
+--    "v_institutionid" -- An identifier for the institution having custody of the object(s) or information referred to in the record.
+--    "v_collectionid" -- An identifier for the collection or dataset from which the record was derived.
+--    "v_datasetid" -- An identifier for the set of data.
+--    "v_institutioncode" -- The name (or acronym) in use by the institution having custody of the object(s) or information referred to in the record.
+--    "v_collectioncode" -- The name, acronym, coden, or initialism identifying the collection or data set from which the record was derived.
+--    "v_datasetname" -- The name identifying the data set from which the record was derived.
+--    "v_ownerinstitutioncode" -- The name (or acronym) in use by the institution having ownership of the object(s) or information referred to in the record.
+--    "v_basisofrecord" -- The specific nature of the data record.
+--    "v_informationwithheld" -- Additional information that exists, but that has not been shared in the given record.
+--    "v_datageneralizations" -- Actions taken to make the shared data less specific or complete than in its original form.
+--    "v_dynamicproperties" -- A list of additional measurements, facts, characteristics, or assertions about the record.
+--    "v_occurrenceid" -- An identifier for the dwc:Occurrence (as opposed to a particular digital record of the dwc:Occurrence).
+--    "v_catalognumber" -- An identifier (preferably unique) for the record within the data set or collection.
+--    "v_recordnumber" -- An identifier given to the dwc:Occurrence at the time it was recorded.
+--    "v_recordedby" -- A list (concatenated and separated) of names of people, groups, or organizations responsible for recording the original dwc:Occurrence.
+--    "v_recordedbyid" -- A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for recording the original...
+--    "v_individualcount" -- The number of individuals present at the time of the dwc:Occurrence.
+--    "v_organismquantity" -- A number or enumeration value for the quantity of dwc:Organisms.
+--    "v_organismquantitytype" -- The type of quantification system used for the quantity of dwc:Organisms.
+--    "v_sex" -- The sex of the biological individual(s) represented in the dwc:Occurrence.
+--    "v_lifestage" -- The age class or life stage of the dwc:Organism(s) at the time the dwc:Occurrence was recorded.
+--    "v_reproductivecondition" -- The reproductive condition of the biological individual(s) represented in the dwc:Occurrence.
+--    "v_caste" -- Categorisation of individuals for eusocial species (including some mammals and arthropods).
+--    "v_behavior" -- The behavior shown by the subject at the time the dwc:Occurrence was recorded.
+--    "v_vitality" -- An indication of whether a dwc:Organism was alive or dead at the time of collection or observation.
+--    "v_establishmentmeans" -- Statement about whether a dwc:Organism has been introduced to a given place and time through the direct or indirect activity of modern humans.
+--    "v_degreeofestablishment" -- The degree to which a dwc:Organism survives, reproduces, and expands its range at the given place and time.
+--    "v_pathway" -- The process by which a dwc:Organism came to be in a given place at a given time.
+--    "v_georeferenceverificationstatus" -- A categorical description of the extent to which the georeference has been verified to represent the best possible spatial description for the dcterms:Location of the...
+--    "v_occurrencestatus" -- A statement about the presence or absence of a dwc:Taxon at a dcterms:Location.
+--    "v_preparations" -- A list (concatenated and separated) of preparations and preservation methods for a dwc:MaterialEntity.
+--    "v_disposition" -- The current state of a dwc:MaterialEntity with respect to a collection.
+--    "v_associatedmedia" -- A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of media associated with the dwc:Occurrence.
+--    "v_associatedoccurrences" -- A list (concatenated and separated) of identifiers of other dwc:Occurrence records and their associations to this dwc:Occurrence.
+--    "v_associatedreferences" -- A list (concatenated and separated) of identifiers (publication, bibliographic reference, global unique identifier, URI) of literature associated with the dwc:Occurrence.
+--    "v_associatedsequences" -- A list (concatenated and separated) of identifiers (publication, global unique identifier, URI) of genetic sequence information associated with the dwc:MaterialEntity.
+--    "v_associatedtaxa" -- A list (concatenated and separated) of identifiers or names of dwc:Taxon records and the associations of this dwc:Occurrence to each of them.
+--    "v_othercatalognumbers" -- A list (concatenated and separated) of previous or alternate fully qualified catalog numbers or other human-used identifiers for the same dwc:Occurrence, whether in...
+--    "v_occurrenceremarks" -- Comments or notes about the dwc:Occurrence.
+--    "v_organismid" -- An identifier for the dwc:Organism instance (as opposed to a particular digital record of the dwc:Organism).
+--    "v_organismname" -- A textual name or label assigned to a dwc:Organism instance.
+--    "v_organismscope" -- A description of the kind of dwc:Organism instance.
+--    "v_associatedorganisms" -- A list (concatenated and separated) of identifiers of other dwc:Organisms and the associations of this dwc:Organism to each of them.
+--    "v_previousidentifications" -- A list (concatenated and separated) of previous assignments of names to the dwc:Organism.
+--    "v_organismremarks" -- Comments or notes about the dwc:Organism instance.
+--    "v_materialentityid" -- An identifier for a particular instance of a dwc:MaterialEntity.
+--    "v_materialentityremarks" -- Comments or notes about the dwc:MaterialEntity instance.
+--    "v_verbatimlabel" -- The content of this term should include no embellishments, prefixes, headers or other additions made to the text.
+--    "v_materialsampleid" -- An identifier for the dwc:MaterialSample (as opposed to a particular digital record of the dwc:MaterialSample).
+--    "v_eventid" -- An identifier for the set of information associated with a dwc:Event (something that occurs at a place and time).
+--    "v_parenteventid" -- An identifier for the broader dwc:Event that groups this and potentially other dwc:Events.
+--    "v_eventtype" -- The nature of the dwc:Event.
+--    "v_fieldnumber" -- An identifier given to the dwc:Event in the field.
+--    "v_eventdate" -- The date-time or interval during which a dwc:Event occurred.
+--    "v_eventtime" -- The time or interval during which a dwc:Event occurred.
+--    "v_startdayofyear" -- The earliest integer day of the year on which the dwc:Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).
+--    "v_enddayofyear" -- The latest integer day of the year on which the dwc:Event occurred (1 for January 1, 365 for December 31, except in a leap year, in which case it is 366).
+--    "v_year" -- The four-digit year in which the dwc:Event occurred, according to the Common Era Calendar.
+--    "v_month" -- The integer month in which the dwc:Event occurred.
+--    "v_day" -- The integer day of the month on which the dwc:Event occurred.
+--    "v_verbatimeventdate" -- The verbatim original representation of the date and time information for a dwc:Event.
+--    "v_habitat" -- A category or description of the habitat in which the dwc:Event occurred.
+--    "v_samplingprotocol" -- The names of, references to, or descriptions of the methods or protocols used during a dwc:Event.
+--    "v_samplesizevalue" -- A numeric value for a measurement of the size (time duration, length, area, or volume) of a sample in a sampling dwc:Event.
+--    "v_samplesizeunit" -- The unit of measurement of the size (time duration, length, area, or volume) of a sample in a sampling dwc:Event.
+--    "v_samplingeffort" -- The amount of effort expended during a dwc:Event.
+--    "v_fieldnotes" -- One of a) an indicator of the existence of, b) a reference to (publication, URI), or c) the text of notes taken in the field about the dwc:Event.
+--    "v_eventremarks" -- Comments or notes about the dwc:Event.
+--    "v_projecttitle" -- A list (concatenated and separated) of titles or names for projects that contributed to a dwc:Event.
+--    "v_projectid" -- A list (concatenated and separated) of identifiers for projects that contributed to a dwc:Event.
+--    "v_fundingattribution" -- Funding source or organization supporting the project.
+--    "v_fundingattributionid" -- A list (concatenated and separated) of the globally unique identifiers for the funding organizations or agencies that supported the project.
+--    "v_locationid" -- An identifier for the set of dcterms:Location information.
+--    "v_highergeographyid" -- An identifier for the geographic region within which the dcterms:Location occurred.
+--    "v_highergeography" -- A list (concatenated and separated) of geographic names less specific than the information captured in the dwc:locality term.
+--    "v_continent" -- The name of the continent in which the dcterms:Location occurs.
+--    "v_waterbody" -- The name of the water body in which the dcterms:Location occurs.
+--    "v_islandgroup" -- The name of the island group in which the dcterms:Location occurs.
+--    "v_island" -- The name of the island on or near which the dcterms:Location occurs.
+--    "v_country" -- The name of the country or major administrative unit in which the dcterms:Location occurs.
+--    "v_countrycode" -- The standard code for the country in which the dcterms:Location occurs.
+--    "v_stateprovince" -- The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the dcterms:Location occurs.
+--    "v_county" -- The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the dcterms:Location occurs.
+--    "v_municipality" -- The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the dcterms:Location occurs.
+--    "v_locality" -- The specific description of the place.
+--    "v_verbatimlocality" -- The original textual description of the place.
+--    "v_minimumelevationinmeters" -- The lower limit of the range of elevation (altitude, usually above sea level), in meters.
+--    "v_maximumelevationinmeters" -- The upper limit of the range of elevation (altitude, usually above sea level), in meters.
+--    "v_verbatimelevation" -- The original description of the elevation (altitude, usually above sea level) of the Location.
+--    "v_verticaldatum" -- The vertical datum used as the reference upon which the values in the elevation terms are based.
+--    "v_minimumdepthinmeters" -- The lesser depth of a range of depth below the local surface, in meters.
+--    "v_maximumdepthinmeters" -- The greater depth of a range of depth below the local surface, in meters.
+--    "v_verbatimdepth" -- The original description of the depth below the local surface.
+--    "v_minimumdistanceabovesurfaceinmeters" -- The lesser distance in a range of distance from a reference surface in the vertical direction, in meters.
+--    "v_maximumdistanceabovesurfaceinmeters" -- The greater distance in a range of distance from a reference surface in the vertical direction, in meters.
+--    "v_locationaccordingto" -- Information about the source of this dcterms:Location information.
+--    "v_locationremarks" -- Comments or notes about the dcterms:Location.
+--    "v_decimallatitude" -- The geographic latitude (in decimal degrees, using the spatial reference system given in dwc:geodeticDatum) of the geographic center of a dcterms:Location.
+--    "v_decimallongitude" -- The geographic longitude (in decimal degrees, using the spatial reference system given in dwc:geodeticDatum) of the geographic center of a dcterms:Location.
+--    "v_geodeticdatum" -- The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geographic coordinates given in dwc:decimalLatitude and dwc:decimalLongitude are based.
+--    "v_coordinateuncertaintyinmeters" -- The horizontal distance (in meters) from the given dwc:decimalLatitude and dwc:decimalLongitude describing the smallest circle containing the whole of the...
+--    "v_coordinateprecision" -- A decimal representation of the precision of the coordinates given in the dwc:decimalLatitude and dwc:decimalLongitude.
+--    "v_pointradiusspatialfit" -- The ratio of the area of the point-radius (dwc:decimalLatitude, dwc:decimalLongitude, dwc:coordinateUncertaintyInMeters) to the area of the true (original, or most...
+--    "v_verbatimcoordinates" -- The verbatim original spatial coordinates of the dcterms:Location.
+--    "v_verbatimlatitude" -- The verbatim original latitude of the dcterms:Location.
+--    "v_verbatimlongitude" -- The verbatim original longitude of the dcterms:Location.
+--    "v_verbatimcoordinatesystem" -- The coordinate format for the dwc:verbatimLatitude and dwc:verbatimLongitude or the dwc:verbatimCoordinates of the dcterms:Location.
+--    "v_verbatimsrs" -- The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which coordinates given in dwc:verbatimLatitude and dwc:verbatimLongitude, or...
+--    "v_footprintwkt" -- A Well-Known Text (WKT) representation of the shape (footprint, geometry) that defines the dcterms:Location.
+--    "v_footprintsrs" -- The ellipsoid, geodetic datum, or spatial reference system (SRS) upon which the geometry given in dwc:footprintWKT is based.
+--    "v_footprintspatialfit" -- The ratio of the area of the dwc:footprintWKT to the area of the true (original, or most specific) spatial representation of the dcterms:Location.
+--    "v_georeferencedby" -- A list (concatenated and separated) of names of people, groups, or organizations who determined the georeference (spatial representation) for the dcterms:Location.
+--    "v_georeferenceddate" -- The date on which the dcterms:Location was georeferenced.
+--    "v_georeferenceprotocol" -- A description or reference to the methods used to determine the spatial footprint, coordinates, and uncertainties.
+--    "v_georeferencesources" -- A list (concatenated and separated) of maps, gazetteers, or other resources used to georeference the dcterms:Location, described specifically enough to allow anyone...
+--    "v_georeferenceremarks" -- Comments or notes about the spatial description determination, explaining assumptions made in addition or opposition to the those formalized in the method referred to...
+--    "v_geologicalcontextid" -- An identifier for the set of information associated with a dwc:GeologicalContext (the location within a geological context, such as stratigraphy).
+--    "v_earliesteonorlowesteonothem" -- The full name of the earliest possible geochronologic eon or lowest chrono-stratigraphic eonothem or the informal name ("Precambrian") attributable to the...
+--    "v_latesteonorhighesteonothem" -- The full name of the latest possible geochronologic eon or highest chrono-stratigraphic eonothem or the informal name ("Precambrian") attributable to the...
+--    "v_earliesteraorlowesterathem" -- The full name of the earliest possible geochronologic era or lowest chronostratigraphic erathem attributable to the stratigraphic horizon from which the...
+--    "v_latesteraorhighesterathem" -- The full name of the latest possible geochronologic era or highest chronostratigraphic erathem attributable to the stratigraphic horizon from which the...
+--    "v_earliestperiodorlowestsystem" -- The full name of the earliest possible geochronologic period or lowest chronostratigraphic system attributable to the stratigraphic horizon from which the...
+--    "v_latestperiodorhighestsystem" -- The full name of the latest possible geochronologic period or highest chronostratigraphic system attributable to the stratigraphic horizon from which the...
+--    "v_earliestepochorlowestseries" -- The full name of the earliest possible geochronologic epoch or lowest chronostratigraphic series attributable to the stratigraphic horizon from which the...
+--    "v_latestepochorhighestseries" -- The full name of the latest possible geochronologic epoch or highest chronostratigraphic series attributable to the stratigraphic horizon from which the...
+--    "v_earliestageorloweststage" -- The full name of the earliest possible geochronologic age or lowest chronostratigraphic stage attributable to the stratigraphic horizon from which the...
+--    "v_latestageorhigheststage" -- The full name of the latest possible geochronologic age or highest chronostratigraphic stage attributable to the stratigraphic horizon from which the...
+--    "v_lowestbiostratigraphiczone" -- The full name of the lowest possible geological biostratigraphic zone of the stratigraphic horizon from which the dwc:MaterialEntity was collected.
+--    "v_highestbiostratigraphiczone" -- The full name of the highest possible geological biostratigraphic zone of the stratigraphic horizon from which the dwc:MaterialEntity was collected.
+--    "v_lithostratigraphicterms" -- The combination of all lithostratigraphic names for the rock from which the dwc:MaterialEntity was collected.
+--    "v_group" -- The full name of the lithostratigraphic group from which the dwc:MaterialEntity was collected.
+--    "v_formation" -- The full name of the lithostratigraphic formation from which the dwc:MaterialEntity was collected.
+--    "v_member" -- The full name of the lithostratigraphic member from which the dwc:MaterialEntity was collected.
+--    "v_bed" -- The full name of the lithostratigraphic bed from which the dwc:MaterialEntity was collected.
+--    "v_identificationid" -- An identifier for the dwc:Identification (the body of information associated with the assignment of a scientific name).
+--    "v_verbatimidentification" -- A string representing the taxonomic identification as it appeared in the original record.
+--    "v_identificationqualifier" -- A brief phrase or a standard term ("cf.", "aff.") to express the determiner’s doubts about the dwc:Identification.
+--    "v_typestatus" -- A list (concatenated and separated) of nomenclatural types (type status, typified scientific name, publication) applied to the subject.
+--    "v_identifiedby" -- A list (concatenated and separated) of names of people, groups, or organizations who assigned the dwc:Taxon to the subject.
+--    "v_identifiedbyid" -- A list (concatenated and separated) of the globally unique identifier for the person, people, groups, or organizations responsible for assigning the dwc:Taxon to the...
+--    "v_dateidentified" -- The date on which the subject was determined as representing the dwc:Taxon.
+--    "v_identificationreferences" -- A list (concatenated and separated) of references (publication, global unique identifier, URI) used in the dwc:Identification.
+--    "v_identificationverificationstatus" -- A categorical indicator of the extent to which the taxonomic identification has been verified to be correct.
+--    "v_identificationremarks" -- Comments or notes about the dwc:Identification.
+--    "v_taxonid" -- An identifier for the set of dwc:Taxon information.
+--    "v_scientificnameid" -- An identifier for the nomenclatural (not taxonomic) details of a scientific name.
+--    "v_acceptednameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) of the currently valid (zoological) or accepted (botanical) taxon.
+--    "v_parentnameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) of the direct, most proximate higher-rank parent taxon (in a classification)...
+--    "v_originalnameusageid" -- An identifier for the name usage (documented meaning of the name according to a source) in which the terminal element of the dwc:scientificName was originally...
+--    "v_nameaccordingtoid" -- An identifier for the source in which the specific taxon concept circumscription is defined or implied.
+--    "v_namepublishedinid" -- An identifier for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode.
+--    "v_taxonconceptid" -- An identifier for the taxonomic concept to which the record refers - not for the nomenclatural details of a dwc:Taxon.
+--    "v_scientificname" -- The full scientific name, with authorship and date information if known.
+--    "v_acceptednameusage" -- The full name, with authorship and date information if known, of the currently valid (zoological) or accepted (botanical) dwc:Taxon.
+--    "v_parentnameusage" -- The full name, with authorship and date information if known, of the direct, most proximate higher-rank parent dwc:Taxon (in a classification) of the most specific...
+--    "v_originalnameusage" -- The taxon name, with authorship and date information if known, as it originally appeared when first established under the rules of the associated dwc:nomenclaturalCode.
+--    "v_nameaccordingto" -- The reference to the source in which the specific taxon concept circumscription is defined or implied - traditionally signified by the Latin "sensu" or "sec." (from...
+--    "v_namepublishedin" -- A reference for the publication in which the dwc:scientificName was originally established under the rules of the associated dwc:nomenclaturalCode.
+--    "v_namepublishedinyear" -- The four-digit year in which the dwc:scientificName was published.
+--    "v_higherclassification" -- A list (concatenated and separated) of taxa names terminating at the rank immediately superior to the referenced dwc:Taxon.
+--    "v_kingdom" -- The full scientific name of the kingdom in which the dwc:Taxon is classified.
+--    "v_phylum" -- The full scientific name of the phylum or division in which the dwc:Taxon is classified.
+--    "v_class" -- The full scientific name of the class in which the dwc:Taxon is classified.
+--    "v_order" -- The full scientific name of the order in which the dwc:Taxon is classified.
+--    "v_superfamily" -- The full scientific name of the superfamily in which the dwc:Taxon is classified.
+--    "v_family" -- The full scientific name of the family in which the dwc:Taxon is classified.
+--    "v_subfamily" -- The full scientific name of the subfamily in which the dwc:Taxon is classified.
+--    "v_tribe" -- The full scientific name of the tribe in which the dwc:Taxon is classified.
+--    "v_subtribe" -- The full scientific name of the subtribe in which the dwc:Taxon is classified.
+--    "v_genus" -- The full scientific name of the genus in which the dwc:Taxon is classified.
+--    "v_genericname" -- The genus part of the dwc:scientificName without authorship.
+--    "v_subgenus" -- The full scientific name of the subgenus in which the dwc:Taxon is classified.
+--    "v_infragenericepithet" -- The infrageneric part of a binomial name at ranks above species but below genus.
+--    "v_specificepithet" -- The name of the first or species epithet of the dwc:scientificName.
+--    "v_infraspecificepithet" -- The name of the lowest or terminal infraspecific epithet of the dwc:scientificName, excluding any rank designation.
+--    "v_cultivarepithet" -- Part of the name of a cultivar, cultivar group or grex that follows the dwc:scientificName.
+--    "v_taxonrank" -- The taxonomic rank of the most specific name in the dwc:scientificName.
+--    "v_verbatimtaxonrank" -- The taxonomic rank of the most specific name in the dwc:scientificName as it appears in the original record.
+--    "v_scientificnameauthorship" -- The authorship information for the dwc:scientificName formatted according to the conventions of the applicable dwc:nomenclaturalCode.
+--    "v_vernacularname" -- A common or vernacular name.
+--    "v_nomenclaturalcode" -- The nomenclatural code (or codes in the case of an ambiregnal name) under which the dwc:scientificName is constructed.
+--    "v_taxonomicstatus" -- The status of the use of the dwc:scientificName as a label for a taxon.
+--    "v_nomenclaturalstatus" -- The status related to the original publication of the name and its conformance to the relevant rules of nomenclature.
+--    "v_taxonremarks" -- Comments or notes about the taxon or name.
+FROM occurrence
+WHERE "countrycode" = 'CH'
+LIMIT 1000;
